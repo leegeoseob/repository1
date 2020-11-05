@@ -1742,13 +1742,15 @@ class mainCog(commands.Cog):
 					win_member.append(f"{input_dict[f'{x}']}")
 				else :
 					lose_member.append(f"{input_dict[f'{x}']}")
-
+			
+			win_member = random.shuffle(win_member)
+							   
 			embed = discord.Embed(title  = "🎲 사다리! 묻고 더블로 가!",
 				color=0x00ff00
 				)
 			embed.description = f"||```{input_data}\n{''.join(ladder_data)}{' '.join(output_list)}```||"
 			embed.add_field(name = "👥 참가자", value =  f"```fix\n{', '.join(join_member)}```", inline=False)
-			embed.add_field(name = "😍 당첨", value =  f"```fix\n{', '.join(random.shuffle(win_member))}```")
+			embed.add_field(name = "😍 당첨", value =  f"```fix\n{', '.join(win_member)}```")
 			embed.add_field(name = "😭 낙첨", value =  f"```{', '.join(lose_member)}```")
 			return await ctx.send(embed = embed)
 		else:
