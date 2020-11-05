@@ -635,7 +635,7 @@ async def FixedBossDateSave():
 #사다리함수		
 async def LadderFunc(number, ladderlist, channelVal):
 	result_ladder = random.sample(ladderlist, number)
-	result_ladder = random.shuffle(result_ladder)
+	random.shuffle(result_ladder)
 	lose_member = [item for item in ladderlist if item not in result_ladder]
 	result_ladderSTR = ','.join(map(str, result_ladder))
 	embed = discord.Embed(title  = "🎲 사다리! 묻고 더블로 가!",color=0x00ff00)
@@ -1743,7 +1743,7 @@ class mainCog(commands.Cog):
 				else :
 					lose_member.append(f"{input_dict[f'{x}']}")
 			
-			win_member = random.shuffle(win_member)
+			random.shuffle(win_member)
 							   
 			embed = discord.Embed(title  = "🎲 사다리! 묻고 더블로 가!",
 				color=0x00ff00
